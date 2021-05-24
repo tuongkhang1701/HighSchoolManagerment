@@ -1,0 +1,59 @@
+﻿@model HighSchoolManagerment.Common.DataResultBangDiem
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Bảng điểm</h3>
+        <h2>Họ và tên: @Model.HocSinh.HoTen</h2>
+    </div>
+
+    <div class="title_right">
+        <div class="row">
+            <div class="col-md-2 col-sm-2 form-group pull-right top_search">
+                <div class="input-group">
+
+                    <button type="button" class="btn btn-dark" onclick="window.location.href='/admin/bangdiem/index'">Cập nhật điểm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row" style="display: block;">
+
+    <div class="col-md-12 col-sm-12  ">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Môn học</th>
+                            <th>Điểm</th>
+                            <th>Học kỳ</th>
+                            <th>Ngày tạo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                        @foreach (var item in Model.DataDetail)
+                        {
+                            <tr>
+                                @*<td>@item.HocSinh.HoTen</td>
+                                    <td>@item.HocSinh.HoTen</td>
+                                    <td>@item.DataDetail.Values</td>
+                                    @foreach (var jtem in item.DataDetail.Values)
+                                    {
+                                        @jtem.MaBD
+                                    }
+                                    <td>@item.LoaiDiem.Ten</td>
+                                    <td>@item.HocKy</td>
+                                    <td>@item.NgayTao</td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

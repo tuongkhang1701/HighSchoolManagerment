@@ -1,0 +1,84 @@
+﻿@using HighSchoolManagerment.Data.Entities
+@model HighSchoolManagerment.Common.PaginationResult<Lop>
+@{
+    ViewData["Title"] = "Danh sách lớp học";
+}
+
+@*@section Scripts{
+
+        <script src="~/admin/controllers/user.js" asp-append-version="true"></script>
+        <script>
+            var user = new userController();
+            user.initialize();
+        </script>
+    }*@
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Danh sách lớp học</h3>
+    </div>
+
+    <div class="title_right">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 form-group pull-right top_search">
+                <div class="input-group">
+
+                    <button class="btn btn-primary" type="button" onclick="window.location.href='/admin/lop/Add'">Thêm lớp học</button>
+
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 form-group pull-right top_search">
+                <form class="input-group" href="/admin/nguoidung/paging">
+                    <input type="text" name="keyword" class="form-control rounded" id="searchUser" value="@ViewBag.Keyword" placeholder="Search for...">
+                    <input type="hidden" name="UserGroupId" class="form-control" id="UserGroupId" value="HOCSINH">
+
+                    <button class="btn btn-outline-primary" id="btnSearch" type="submit">Tìm kiếm</button>
+
+                </form>
+            </div>
+            <div class="col-md-2 col-sm-2 form-group pull-right top_search">
+                <div class="input-group">
+
+                    <button type="button" class="btn btn-dark" onclick="window.location.href='/admin/lop/index?role=HOCSINH'">Đặt lại</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row" style="display: block;">
+
+    <div class="col-md-12 col-sm-12  ">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Lớp</th>
+                            <th>Tùy chọn</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                        @foreach (var item in Model.Data)
+                        {
+                            <tr>
+                                <td>@item.Ten</td>
+                                <th scope="row">
+                                    <a class="btn btn-info btn-sm" href="/admin/lop/update/@item.MaLop"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="/admin/lop/remove/@item.MaLop"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="/admin/lop/getbyuserId/@item.MaLop"><i class="fa fa-book"></i></a>
+                                </th>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @await Component.InvokeAsync("PhanTrang", Model)
+            </div>
+        </div>
+    </div>
+</div>

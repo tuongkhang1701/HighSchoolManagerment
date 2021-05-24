@@ -1,0 +1,67 @@
+﻿@model List<HighSchoolManagerment.Data.Entities.BangDiem>
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Bảng điểm</h3>
+        @*@if (!string.IsNullOrEmpty(Model.MonHoc.MaMH))
+        {
+            <h3>Họ và tên học sinh: @Model.NguoiDung.HoTen</h3>
+        }*@
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row" style="display: block;">
+
+    <div class="col-md-12 col-sm-12  ">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center; vertical-align: middle;">Môn học</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm miệng HK1</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm 15 phút HK1</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm 1 tiết HK1</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm thi HK1</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm trung bình HK1</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm miệng HK2</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm 15 phút HK2</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm 1 tiết HK2</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm thi HK2</th>
+                            <th style="text-align: center; vertical-align: middle;">Điểm trung bình HK2</th>
+                            <th style="text-align: center; vertical-align: middle;">Cả năm</th>
+                            <th style="text-align: center; vertical-align: middle;">Tùy chọn</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                        @foreach (var item in Model)
+                        {
+
+                        <tr>
+                            <td style="text-align: center; vertical-align: middle;">@item.MonHoc.Ten</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.DiemMiengHK1</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.Diem15PhutHK1</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.Diem1TietHK1</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.DiemThiHK1</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.DTBHK1</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.DiemMiengHK2</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.Diem15PhutHK2</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.Diem1TietHK2</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.DiemThiHK2</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.DTBHK2</td>
+                            <td style="text-align: center; vertical-align: middle;">@item.CaNam</td>
+                            <td style="text-align: center; vertical-align: middle;">
+                                <button onclick="window.location.href = '/admin/bangdiem/update?MaBD=@item.MaBD'" class="btn btn-danger" type="button"><i class="fa fa-pencil"></i></button>
+                            </td>
+                        </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

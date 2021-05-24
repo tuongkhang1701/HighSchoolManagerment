@@ -1,0 +1,159 @@
+﻿@model HighSchoolManagerment.Data.Entities.BangDiem
+
+@{
+    ViewData["Title"] = "Cập nhật điểm";
+
+}
+
+<div class="page-title">
+    <div class="title_left">
+        @if (!string.IsNullOrEmpty(Model.MonHoc.MaMH))
+        {
+            <h3>Họ và tên học sinh: @Model.NguoiDung.HoTen</h3>
+        }
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_content">
+                <br />
+                <form class="needs-validation" novalidate href="/admin/bangdiem/update" method="post">
+                    <div class="form-row" align="center">
+                        <div class="col-md-1 mb-1">
+                            <label for="validationCustom01">Môn học</label>
+                        </div>
+                        <div class="col-md-5 mb-5">
+                            <label >Học kỳ 1</label>
+                        </div>
+                        <div class="col-md-5 mb-5">
+                            <label >Học kỳ 2</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Cả năm</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row" align="center">
+                        <div class="col-md-1 mb-1">
+                            <label > </label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm miệng</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm 15 phút</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm 1 tiết</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm thi</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm trung bình</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm miệng</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm 15 phút</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm 1 tiết</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm thi</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm trung bình</label>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <label >Điểm trung bình cả năm</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row" align="center">
+                        <input type="hidden" class="form-control" name="MaBD" value="@Model.MaBD" required readonly>
+                        <input type="hidden" class="form-control" name="MaND" value="@Model.MaND" required readonly>
+                        <div class="col-md-1 mb-1 d-flex align-items-center">
+                            <h4 >@Model.MonHoc.Ten</h4>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="DiemMiengHK1" value="@Model.DiemMiengHK1" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="Diem15PhutHK1" value="@Model.Diem15PhutHK1" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="Diem1TietHK1" value="@Model.Diem1TietHK1" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="DiemThiHK1" value="@Model.DiemThiHK1" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="DTBHK1" value="@Model.DTBHK1" required readonly>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="DiemMiengHK2" value="@Model.DiemMiengHK2" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="Diem15PhutHK2" value="@Model.Diem15PhutHK2" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="Diem1TietHK2" value="@Model.Diem1TietHK2" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="DiemThiHK2" value="@Model.DiemThiHK2" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="DTBHK2" value="@Model.DTBHK2" required readonly>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-1">
+                            <input type="text" class="form-control" name="CaNam" value="@Model.CaNam" required readonly>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Lưu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

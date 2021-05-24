@@ -1,0 +1,104 @@
+﻿@model HighSchoolManagerment.Data.Entities.NguoiDung
+@{
+    ViewData["Title"] = "Cập nhật thông tin thành viên";
+
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Cập nhật thông tin</h3>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_content">
+                <br />
+                <form id="formUser" data-parsley-validate class="form-horizontal form-label-left" href="/Admin/User/Add" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="item form-group">
+                        <input type="hidden" id="Id" required="required" class="form-control ">
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="HinhAnh">
+                            Hình ảnh <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="HinhAnh" name="HinhAnh" required="required" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="HoTen">
+                            Họ và tên <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="HoTen" name="HoTen" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="SDT">
+                            Số điện thoại <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="SDT" name="SDT" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="MatKhau">
+                            Mật khẩu <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="MatKhau" name="MatKhau" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Giới tính</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <select asp-for="MaGT" class="form-control" asp-items="@ViewBag.GioiTinh">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Tôn giáo</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <select asp-for="MaTG" class="form-control" asp-items="@ViewBag.TonGiao">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Vai trò</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <select asp-for="MaNND" class="form-control" asp-items="@ViewBag.NhomNguoiDung">
+                            </select>
+                        </div>
+                    </div>
+                    @*<div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align">
+                Ngày Sinh <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                <script>
+                    function timeFunctionLong(input) {
+                        setTimeout(function () {
+                            input.type = 'text';
+                        }, 60000);
+                    }
+                </script>
+            </div>
+        </div>*@
+                    <div class="ln_solid"></div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <button onclick="window.location.href='/admin/nguoidung/index'" class="btn btn-default" id="btnCancel">Hủy bỏ</button>
+                            <button onclick="window.location.href='/admin/nguoidung/add'" class="btn btn-dark" type="reset">Reset</button>
+                            <button type="submit" class="btn btn-success">Lưu</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+﻿@model HighSchoolManagerment.ViewModels.TKBViewModel
+@{
+    ViewData["Title"] = "Thời Khóa Biểu";
+}
+
+@*@section Scripts{
+
+        <script src="~/admin/controllers/user.js" asp-append-version="true"></script>
+        <script>
+            var user = new userController();
+            user.initialize();
+        </script>
+    }*@
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Danh sách học sinh</h3>
+    </div>
+
+    <div class="title_right">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 form-group pull-right top_search">
+                <div class="input-group">
+
+                    <button class="btn btn-primary" type="button" onclick="window.location.href='/admin/nguoidung/Add'">Thêm thành viên</button>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 form-group pull-right top_search">
+            </div>
+            <div class="col-md-2 col-sm-2 form-group pull-right top_search">
+                <div class="input-group">
+
+                    <button type="button" class="btn btn-dark" onclick="window.location.href='/admin/nguoiDung/index?role=HOCSINH'">Đặt lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="title_right">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 form-group pull-right">
+                <form class="input-group" href="/admin/nguoidung/index" method="post">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <label>Năm học</label>
+                            <select asp-for="MaNH" class="form-control" asp-items="@ViewBag.NamHoc">
+                                <option value="0">Lựa chọn</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Buổi học</label>
+                            <select asp-for="Buoi" class="form-control">
+                                <option value="">Lựa chọn</option>
+                                <option value="Sáng">Sáng</option>
+                                <option value="Chiều">Chiều</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Lớp</label>
+                            <select asp-for="MaLop" class="form-control" asp-items="@ViewBag.Lop">
+                                <option value="">Lựa chọn</option>
+                            </select>
+                        </div>
+                        <input type="hidden" name="UserGroupId" class="form-control" id="UserGroupId" value="HOCSINH">
+                        <div class="col-md-2 col-sm-2">
+                            <button class="btn btn-outline-primary" id="btnSearch" type="submit">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row" style="display: block;">
+
+    <div class="col-md-12 col-sm-12  ">
+        <div class="x_panel">
+            <div class="x_content">
+                @if (Model.TKB.Count != 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Tiết</th>
+                                <th style="text-align: center; vertical-align: middle;">Thứ 2</th>
+                                <th style="text-align: center; vertical-align: middle;">Thứ 3</th>
+                                <th style="text-align: center; vertical-align: middle;">Thứ 4</th>
+                                <th style="text-align: center; vertical-align: middle;">Thứ 5</th>
+                                <th style="text-align: center; vertical-align: middle;">Thứ 6</th>
+                                <th style="text-align: center; vertical-align: middle;">Thứ 7</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableContent">
+                            @{for (int i = 0; i < 5; i++)
+                                {
+                                    Int32 tiet = i + 1;
+                                    <tr>
+                                        <td style="text-align: center; vertical-align: middle;">@tiet</td>
+                                        @for (int j = ((i * 6)); j < ((i * 6) + 6); j++)
+                                        {
+                                            if (@Model.TKB[j].MaMH.Equals("TRONG"))
+                                            {
+                                                <td></td>
+                                            }
+                                            else
+                                            {
+                                                <td style="text-align: center; vertical-align: middle;">@Model.TKB[j].MonHoc.Ten</td>
+                                            }
+                                        }
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h2>@Model.Notify</h2>
+                }
+            </div>
+        </div>
+    </div>
+</div>

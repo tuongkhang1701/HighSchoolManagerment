@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Danh sách môn học";
+}
+
+@section Script{
+    <script src="~/admin/controllers/subject.js" asp-append-version="true"></script>
+    <script>
+        var subjectController = new subjectController();
+        subjectController.initialize();
+    </script>
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Danh sách vai trò</h3>
+    </div>
+
+    <div class="title_right">
+        <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+            <div class="input-group">
+                <input type="text" id="txtKeyword" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row" style="display: block;">
+
+    <div class="col-md-9 col-sm-9  ">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <table class="table table-bordered" id="table-template">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Mã môn học</th>
+                            <th>Môn học</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-content">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="subject-template" type="x-tmpl-mustache">
+    <tr>
+        <th scope="row">
+            <button class="btn btn-info btn-edit"><i class="fa fa-pencil-square-o"></i></button>
+            <button class="btn btn-danger btn-delete"><i class="fa fa-trash-o"></i></button>
+        </th>
+        <td>{{Code}}</td>
+        <td>{{Name}}</td>
+    </tr>
+</script>
+
